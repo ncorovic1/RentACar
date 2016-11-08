@@ -41,27 +41,27 @@
                     <!-- Branding Image -->
                     @if (Auth::user())
                             <a class="navbar-brand" href="{{ route('welcome') }}">
-                                |Home|
+                                Home
                             </a>
                         @if (Auth::user()->operator)
                             <a class="navbar-brand" href="{{ route('register') }}">
-                                |Register User|
+                                Register User
                             </a>
                             <a class="navbar-brand" href="{{ route('nalozi') }}">
-                                |Suspend User|
+                                Suspend User
                             </a>
                             <a class="navbar-brand" href="{{ route('registerVehicle') }}">
-                                |Register Vehicle|
+                                Register Vehicle
                             </a>
                             <a class="navbar-brand" href="{{ route('nalozi') }}">
-                                |Buy Vehicle|
+                                Buy Vehicle
                             </a>
                             <a class="navbar-brand" href="{{ route('registerVehicle') }}">
-                                |Browse Firm Vehicle|
+                                Browse Firm Vehicles
                             </a>
                         @else
                             <a class="navbar-brand" href="{{ route('pregled') }}">
-                                My rents
+                                My Cars
                             </a>
                             <a class="navbar-brand" href="{{ route('iznajmljivanje') }}">
                                 Rent a Car

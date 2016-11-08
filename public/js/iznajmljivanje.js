@@ -1,10 +1,9 @@
-function addField(){
+/*function addField(){
             var row = document.getElementsByClassName("rowFilter");
             var container = document.getElementById("formFilter");
             row[1].style.display = 'block';
             var number = 5;
             for (i=0;i<number;i++) {
-                /*
                     // Append a node with a random text
                     container.appendChild(document.createTextNode("Member " + (i+1)));
                     // Create an <input> element, set its type and name attributes
@@ -14,10 +13,9 @@ function addField(){
                     container.appendChild(input);
                     // Append a line break 
                     container.appendChild(document.createElement("br"));
-                */
+                
             }
-        }
-
+        }*/
 function omoguci(id) {
     els = document.getElementsByClassName(id);
     for(var i=0; i<2; i++) {

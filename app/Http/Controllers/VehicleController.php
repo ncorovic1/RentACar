@@ -2,22 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use View;
 use App\Vehicle;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
-class VehicleController extends Controller
-{
-    
+class VehicleController extends Controller {
     protected $redirectTo = '/operator';
-
-    public function __construct()
-    {
-
+    public function __construct() {}
+    // display all vehicles as search results; no filters
+    public function displayAll() {
+        $vehicles = Vehicle::all();
+        return View::make('pretraga')->with('vehicles', $vehicles);
     }
-
-    protected function validator(array $data)
-    {
+    // @register = @validator + @create
+    public function register(\Illuminate\Http\Request $request) {
+          $this->validator($request->all())->validate();
+          $this->create($request->all());
+          return redirect('/operator');
+    }
+    protected function validator(array $data) {
         return Validator::make($data, [
             'manufacturer' => 'required|max:25',
             'model' => 'required|max:30', 
@@ -26,7 +30,7 @@ class VehicleController extends Controller
             'form_factor' => ' ', 
             'automatic' => ' ', 
             'air_conditioning' => ' ', 
-            'passengers' => '', 
+            'passengers' => ' ', 
             'bags' => ' ', 
             'doors' => ' ',
             'available' => ' ',
@@ -36,9 +40,7 @@ class VehicleController extends Controller
             'image3' => 'required|url',
         ]);
     }
-    
-    protected function create(array $data)
-    {
+    protected function create(array $data) {
         return Vehicle::create([
             'manufacturer' => $data['manufacturer'],
             'model' => $data['model'], 
@@ -55,15 +57,5 @@ class VehicleController extends Controller
             'image2' => $data['image2'], 
             'image3' => $data['image3'],
         ]);
-    }
-
-    public function register(\Illuminate\Http\Request $request)
-    {
-
-          $this->validator($request->all())->validate();
-
-          $this->create($request->all());
-
-          return redirect('/operator');
     }
 }

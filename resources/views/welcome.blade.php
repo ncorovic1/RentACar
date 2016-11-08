@@ -27,7 +27,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Rent A Car
+                    RENT-A-CAR
                 </div>
             </div>
         </div>
