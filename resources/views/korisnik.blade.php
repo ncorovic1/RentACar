@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-3">
-                <a href="{{ route('iznajmljivanje') }}">
+                <a href="{{ route('renting') }}">
                     <img alt="PicRenting" src="images/iznajmljivanje.png" class="img-responsive img-rounded" />
                     <h3 class="text-center">
                         Rent a New Car

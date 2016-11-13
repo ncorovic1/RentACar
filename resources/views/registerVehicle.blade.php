@@ -202,6 +202,34 @@
                             </div>
                         </div>
                         
+                        <div class="form-group{{ $errors->has('price_per_hour') ? ' has-error' : '' }}">
+                            <label for="price_per_hour" class="col-md-4 control-label">Price Per Hour</label>
+
+                            <div class="col-md-6">
+                                <input id="price_per_hour" type="text" class="form-control" name="price_per_hour" value="{{ old('price_per_hour') }}" required autofocus>
+
+                                @if ($errors->has('price_per_hour'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('price_per_hour') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <div class="form-group{{ $errors->has('fuel_consumption') ? ' has-error' : '' }}">
+                            <label for="fuel_consumption" class="col-md-4 control-label">Fuel Consumption</label>
+
+                            <div class="col-md-6">
+                                <input id="fuel_consumption" type="text" class="form-control" name="fuel_consumption" value="{{ old('fuel_consumption') }}" required autofocus>
+
+                                @if ($errors->has('fuel_consumption'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fuel_consumption') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
                         <div class="form-group{{ $errors->has('image1') ? ' has-error' : '' }}">
                             <label for="image1" class="col-md-4 control-label">Image[1]</label>
 

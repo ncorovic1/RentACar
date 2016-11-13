@@ -76,7 +76,7 @@
                 
             </div>
             <div class="col-md-2">
-                <a href="{{ url('/kupovinaAutomobila') }}">
+                <a href="{{ url('/purchaseVehicle') }}">
                     <img alt="PicRenting" src="images/carsBrowse.png" class="img-responsive img-rounded" />
                     <h3 class="text-center">
                         Purchase Vehicle
@@ -87,7 +87,7 @@
                 
             </div>
             <div class="col-md-2">
-                <a href="{{ url('/pregledAutomobilaFirme') }}">
+                <a href="{{ url('/companyVehicles') }}">
                     <img alt="PicRenting" src="images/pregledAutomobilaFirme.png" class="img-responsive img-rounded" />
                     <h3 class="text-center">
                         Browse Company Vehicles

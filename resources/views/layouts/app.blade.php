@@ -53,18 +53,18 @@
                             <a class="navbar-brand" href="{{ route('registerVehicle') }}">
                                 Register Vehicle
                             </a>
-                            <a class="navbar-brand" href="{{ route('nalozi') }}">
-                                Buy Vehicle
+                            <a class="navbar-brand" href="{{ route('purchaseVehicle') }}">
+                                Purchase Vehicle
                             </a>
-                            <a class="navbar-brand" href="{{ route('registerVehicle') }}">
-                                Browse Firm Vehicles
+                            <a class="navbar-brand" href="{{ route('companyVehicles') }}">
+                                Browse Company Vehicles
                             </a>
                         @else
+                            <a class="navbar-brand" href="{{ route('renting') }}">
+                                Rent a Car
+                            </a>
                             <a class="navbar-brand" href="{{ route('pregled') }}">
                                 My Cars
-                            </a>
-                            <a class="navbar-brand" href="{{ route('iznajmljivanje') }}">
-                                Rent a Car
                             </a>
                         @endif
                     @endif
