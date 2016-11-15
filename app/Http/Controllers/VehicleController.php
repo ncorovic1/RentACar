@@ -56,38 +56,31 @@ class VehicleController extends Controller {
         else if (Auth::user()->operator)
             return \Redirect::route('operator');
         else {
-            $vehicles = Vehicle::where('id', '>', '0');        
-            if( $price != 'Any')
+            $vehicles = Vehicle::where('id', '>', '0');
+            if ($price != 'Any')
                 $vehicles = $vehicles->where('price_per_hour', '<', $price);
-
-            if( $form != 'Any')
+            if ($form != 'Any')
                 $vehicles = $vehicles->where('form_factor', '=', $form);
-
-            if( $transmission != 'Any')
+            if ($transmission != 'Any')
                 $vehicles = $vehicles->where('automatic', '=', $transmission == "Automatic" ? 1 : 0);
-
-            if( $fuel != 'Any')
-                $vehicles = $vehicles->where('fuel_consume', '<', $fuel);
-
-            $order = array("price_per_hour", "fuel_consume");
-            for( $i = 0; $i <= strlen($priorities) - 2; $i++)
-                for( $j = $i+1; $j <= strlen($priorities) - 1; $j++)
-                    if( $priorities[$i] < $priorities[$j]) {
-                        $temp      = $order[$i];
+            if ($fuel != 'Any')
+                $vehicles = $vehicles->where('fuel_consumption', '<', $fuel);
+            $order = array("price_per_hour", "fuel_consumption");
+            for ($i = 0; $i <= strlen($priorities) - 2; $i++)
+                for ($j = $i + 1; $j <= strlen($priorities) - 1; $j++)
+                    if ($priorities[$i] < $priorities[$j]) {
+                        $temp = $order[$i];
                         $order[$j] = $order[$i];
                         $order[$i] = $temp;
-
-                        $temp           = $priorities[$i];
+                        $temp = $priorities[$i];
                         $priorities[$j] = $priorities[$i];
                         $priorities[$i] = $temp;
                     }
-
             $vehicles->orderBy($order[0], 'ASC', $order[1], 'ASC')->get();
             $vehicles = $vehicles->get();
             return View::make('filterCars')->with('vehicles', $vehicles);
         }
-    }
-    
+    }    
     public function registerGet() {
         if (Auth::guest())
             return \Redirect::route('login');
