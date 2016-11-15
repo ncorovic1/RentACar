@@ -1,4 +1,5 @@
-/*function addField(){
+/*
+    function addField(){
             var row = document.getElementsByClassName("rowFilter");
             var container = document.getElementById("formFilter");
             row[1].style.display = 'block';
@@ -14,15 +15,15 @@
                     // Append a line break 
                     container.appendChild(document.createElement("br"));
                 
-            }
-        }*/
+    }
+}*/
+
 function omoguci(id) {
     els = document.getElementsByClassName(id);
-    for(var i=0; i<2; i++) {
+    for (var i = 0; i < 2; i++) {
         //els[i].style.display = 'none';
         els[i].disabled = false;
     }
-    
 }
 
 /*

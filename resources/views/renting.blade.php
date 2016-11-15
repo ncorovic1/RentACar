@@ -12,9 +12,7 @@
 @section('style')
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}" type="text/css"> 
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" type="text/css">
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.css' rel='stylesheet' />
     <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.css' type='text/css' />
 @endsection
 
 @section('font')
@@ -23,8 +21,6 @@
 
 @section('script')
     <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.js'></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.js'></script>
     <script src="js/ajaxRenting.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -44,9 +40,7 @@
             <div class="col-md-1"></div>
             <div class="col-md-5">
                 
-                <div id='map' class="img-responsive" style="width:100%">
-                    <!--<iframe width="100%" height="300px" frameBorder="1" src="https://a.tiles.mapbox.com/v4/asabanovic.246nd1lo.html?access_token=pk.eyJ1IjoiYXNhYmFub3ZpYyIsImEiOiJjaXVvNGM4anowMDE2Mm9vZTFvMmJuMHp0In0.JNevwoK-hgiEEW0Bsu26Cw"></iframe>-->
-                </div>
+                <div id='map' class="img-responsive" style="width:100%"></div>
                 <script src="js/kodZaPrikazMape.js"></script>
             </div>
             <div class="col-md-5">
@@ -180,5 +174,3 @@
 
     </div>
 @endsection
-
-<!--@include ('filterCars');-->

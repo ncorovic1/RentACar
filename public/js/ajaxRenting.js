@@ -37,58 +37,6 @@ function filterData() {
 }
 
 function loadParkingLots(id = 0) {
-    /*var geojson = {
-            type: 'FeatureCollection',
-            features: 
-            [
-                {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-77.03238901390978, 38.913188059745586]
-                    },
-                    "properties": {
-                    "title": "Mapbox DC",
-                    "description": "1714 14th St NW, Washington DC",
-                    "marker-color": "#fc4353",
-                    "marker-size": "large",
-                    "marker-symbol": "monument"
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "geometry": 
-                    {
-                        "type": "Point",
-                        "coordinates": [-122.414, 37.776]
-                    },
-                    "properties": 
-                    {
-                        "title": "Mapbox SF",
-                        "description": "155 9th St, San Francisco",
-                        "marker-color": "#fc4353",
-                        "marker-size": "large",
-                        "marker-symbol": "harbor"
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "geometry": 
-                    {
-                        "type": "Point",
-                        "coordinates": [-122.414, 37.776]
-                    },
-                    "properties": 
-                    {
-                        "title": "Mapbox SF",
-                        "description": "155 9th St, San Francisco",
-                        "marker-color": "#fc4353",
-                        "marker-size": "large",
-                        "marker-symbol": "harbor"
-                    }
-                }
-            ]
-        };*/
     var ajaxRequest;
     try {
         ajaxRequest = new XMLHttpRequest();
@@ -124,7 +72,7 @@ function loadParkingLots(id = 0) {
                             "description": "",
                             "marker-color": "#fc4353",
                             "marker-size": "large",
-                            "marker-symbol": "harbor"
+                            "marker-symbol": "parking"
                         }
                     },
                     {
@@ -139,7 +87,7 @@ function loadParkingLots(id = 0) {
                             "description": "",
                             "marker-color": "#fc4353",
                             "marker-size": "large",
-                            "marker-symbol": "harbor"
+                            "marker-symbol": "parking"
                         }
                     },
                     {
@@ -154,7 +102,7 @@ function loadParkingLots(id = 0) {
                             "description": "",
                             "marker-color": "#fc4353",
                             "marker-size": "large",
-                            "marker-symbol": "harbor"
+                            "marker-symbol": "parking"
                         }
                     }
                 ]
@@ -174,7 +122,6 @@ function loadParkingLots(id = 0) {
                     }
                 }
             }
-
             map.featureLayer.setGeoJSON(geojson);
         }
     }

@@ -17,10 +17,10 @@
             {{ $vehicle->bags }}
             &nbsp;&nbsp;<img src="https://d30y9cdsu7xlg0.cloudfront.net/png/167220-200.png" style="height:17px">
             {{ $vehicle->doors }}
-            <br><br>Current Parking Lot: {{ $vehicle->current_parking_lot }}
             @if ($vehicle->air_conditioning == 1)
                 &nbsp;&nbsp;<img src="https://image.freepik.com/free-icon/car-air-conditioning_318-100220.jpg" style="height:16px">
             @endif
+            <br><br>Current Parking Lot: {{ $vehicle->current_parking_lot }}
             <br><br>
             <a href="javascript:void(0)">
                 <button type="button" class="btn btn-default" onclick="loadParkingLots({{ $vehicle->current_parking_lot }})">Map</button>

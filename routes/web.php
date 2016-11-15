@@ -27,5 +27,5 @@ Route::get('/myrents',          'VehicleController@myrents')->name('pregled'); /
 Route::get('/registerVehicle',  'VehicleController@registerGet')->name('dodajAuto'); //registerVehicle; dodajAuto
 Route::post('/registerVehicle', 'VehicleController@registerPost')->name('registerVehicle'); // registerVehicle; registerVehicle
 Route::get('filterCars/{price}/{form}/{transmission}/{fuel}/{priorities}', 'VehicleController@displayCars')->name('filterCars'); // filterCars; filterCars
-Route::get('loadParkingLots', 'ParkingLotController@loadParkingLots')->name('loadParkingLots');
+Route::get('loadParkingLots', 'ParkingLotController@loadParkingLots')->name('loadParkingLots'); // loadParkingLots; loadParkingLots
 

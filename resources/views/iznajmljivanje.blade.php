@@ -21,14 +21,6 @@
 
 @section('content') 
     <div class="container-fluid">
-        
-        <!--<div class="row">
-            <div class="col-md-12">
-                <h3 class="text-center">
-                    RENT-A-CAR
-                </h3>
-            </div>
-        </div>-->
 
         <div class="row">
             <div class="col-md-3" style="height: 150px;"></div>
