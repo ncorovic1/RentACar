@@ -28,8 +28,18 @@ class VehicleController extends Controller {
             return \Redirect::route('login');
         else if (Auth::user()->operator)
             return \Redirect::route('operator');
-        else
-            return View::make('pregled');
+        else {
+            $reservations = Auth::user()->reservations;
+            $vehicles = array();
+            foreach($reservations as $r) {
+                $v = Vehicle::where('id', '=', $r->vehicle_id)->first();
+                array_push($vehicles, $v);
+            }
+            $data = array(
+                'vehicles' => $vehicles
+            );
+            return View::make('pregled', $data);
+        }
     }
     
     public function purchaseVehicle() {

@@ -28,8 +28,6 @@ function filterData() {
     var transmission = document.getElementsByClassName('3')[0].value;
     var fuel         = document.getElementsByClassName('4')[0].value;
     var priorities = String(document.getElementsByClassName('1')[1].value); 
-    priorities    += String(document.getElementsByClassName('2')[1].value);
-    priorities    += String(document.getElementsByClassName('3')[1].value);
     priorities    += String(document.getElementsByClassName('4')[1].value);
     var query = "/" + price + "/" + form + "/" + transmission + "/" + fuel + "/" + priorities;
     ajaxRequest.open("GET", "filterCars" + query, true);

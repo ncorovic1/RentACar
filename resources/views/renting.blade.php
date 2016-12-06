@@ -38,8 +38,7 @@
 
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-5">
-                
+            <div class="col-md-5">              
                 <div id='map' class="img-responsive" style="width:100%"></div>
                 <script src="js/kodZaPrikazMape.js"></script>
             </div>
@@ -54,6 +53,37 @@
                                 </div>
                             </div>
 
+                            <div class="row rowFilter" id="filter2" style="width:100%">
+                                <label for="inputValue" class="col-md-4 control-label">Form Factor</label>
+                                <div class="col-md-4">
+                                    <select class="form-control 2">
+                                        <option value="Any">       Any       </option>
+                                        <option value="Economy">   Economy   </option>
+                                        <option value="Compact">   Compact   </option>
+                                        <option value="Standard">  Standard  </option>
+                                        <option value="Full Size"> Full Size </option>
+                                        <option value="SUV">       SUV       </option>
+                                        <option value="Luxury">    Luxury    </option>
+                                        <option value="Mini Van">  Mini Van  </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                            </div>
+
+                            <div class="row rowFilter" id="filter3" style="width:100%">
+                                <label for="inputValue" class="col-md-4 control-label">Transmission</label>
+                                <div class="col-md-4">
+                                    <select class="form-control 3">
+                                        <option value="Any">        Any       </option>
+                                        <option value="Manual">     Manual    </option>
+                                        <option value="Automatic">  Automatic </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                            </div>
+                            
                             <div class="row rowFilter" id="filter1" style="width:100%">
                                 <label for="inputValue" class="col-md-4 control-label">Max $/h</label>
                                 <div class="col-md-4">
@@ -74,53 +104,6 @@
                                 <label for="inputPriority" class="col-md-2 control-label">Priority</label>
                                 <div class="col-md-2">
                                     <select class="form-control 1" text="Priority">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row rowFilter" id="filter2" style="width:100%">
-                                <label for="inputValue" class="col-md-4 control-label">Form Factor</label>
-                                <div class="col-md-4">
-                                    <select class="form-control 2">
-                                        <option value="Any">       Any       </option>
-                                        <option value="Economy">   Economy   </option>
-                                        <option value="Compact">   Compact   </option>
-                                        <option value="Standard">  Standard  </option>
-                                        <option value="Full Size"> Full Size </option>
-                                        <option value="SUV">       SUV       </option>
-                                        <option value="Luxury">    Luxury    </option>
-                                        <option value="Mini Van">  Mini Van  </option>
-                                    </select>
-                                </div>
-                                <label for="inputPriority" class="col-md-2 control-label">Priority</label>
-                                <div class="col-md-2">
-                                    <select class="form-control 2">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row rowFilter" id="filter3" style="width:100%">
-                                <label for="inputValue" class="col-md-4 control-label">Transmission</label>
-                                <div class="col-md-4">
-                                    <select class="form-control 3">
-                                        <option value="Any">        Any       </option>
-                                        <option value="Manual">     Manual    </option>
-                                        <option value="Automatic">  Automatic </option>
-                                    </select>
-                                </div>
-                                <label for="inputPriority" class="col-md-2 control-label">Priority</label>
-                                <div class="col-md-2">
-                                    <select class="form-control 3">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
