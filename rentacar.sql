@@ -107,9 +107,12 @@ CREATE TABLE `reservations` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) NOT NULL,
   `vehicle_id` int(10) NOT NULL,
+  `rent_date` datetime NOT NULL,
   `expire_date` datetime NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf16;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf16;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +121,7 @@ CREATE TABLE `reservations` (
 
 LOCK TABLES `reservations` WRITE;
 /*!40000 ALTER TABLE `reservations` DISABLE KEYS */;
-INSERT INTO `reservations` VALUES (1,1,1,'2016-12-22 00:00:00'),(2,2,7,'2016-12-22 00:00:00'),(3,1,8,'2016-12-29 00:00:00'),(4,1,9,'2016-12-26 00:00:00');
+INSERT INTO `reservations` VALUES (1,1,1,'2016-12-16 00:00:00','2016-12-22 00:00:00','2016-12-08 16:43:35','2016-12-08 16:43:35'),(2,2,7,'2016-12-15 00:00:00','2016-12-22 00:00:00','2016-12-08 17:33:50','2016-12-08 17:33:50'),(3,1,8,'2016-12-18 00:00:00','2016-12-29 00:00:00','2016-12-08 17:40:19','2016-12-08 17:40:19');
 /*!40000 ALTER TABLE `reservations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +156,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Nino','nino.corovic@gmail.com','1','$2y$10$R8dYV/QXAUlpuLYOkJZg0uYM90oRuw/b83F3rfITgHYJwJMd.XO9a','gROjjdSBhCEB6qSEIwU2pIpseLr0Ade5CSjZEiikthrSTgJwmGJiTbXvuRCK','2016-10-30 17:14:40','2016-12-05 19:35:50',0,'Active',20.0),(2,'Amir','amir.sabanovic@gmail.com','2','$2y$10$bNVToDYPgP4kmgENAy8nm.Z4lQbpp9B01G2S0LiI8tLi3c2WeGnki','pJIQAgMAeQo3Fikq86kn8zXUht8Jq5LvTU4Pxbrf9wzLmFehCx0SKAK5UpI1','2016-10-30 19:59:29','2016-11-07 21:31:29',0,'Active',20.0),(3,'sadsad','sadsadka@gmail.com','3','$2y$10$2ItmdEi.AtUTb2tdwpWzS.zU4fqyAIQhXzAOSpgX01OJ.3m5d3Oiq',NULL,'2016-10-30 20:36:13','2016-10-30 20:36:13',0,'Active',20.0),(4,'ksladka','novi@email.adresa','4','$2y$10$gXMb.XpKHwib3g.R4jrTZ.PG4VtlCHY65owNyqmehUbX5wr9U73aO',NULL,'2016-10-30 20:51:26','2016-10-30 20:51:26',0,'Active',20.0),(5,'nono','sada@sada.sada','5','$2y$10$k7OOZsI22/mVkJtU3ldQauUEk00sh5My/Aq.A7OsVZokRsVXnc4fm','ibKOhQrIuEXOclUv5KLl4zTki1UFpED0tZhYC1pYigTleqs2TbEcm6QnJP9d','2016-10-30 20:53:51','2016-10-31 06:24:33',0,'Active',20.0),(6,'opp','opp@opp.opp','6','$2y$10$8kRFNFTP13djMCSgf9nUGeQpWTjHagoUd2nnjfErIU6.wVxIAEcum','W5iIZHdxauDuDfYyl0OV2ol5m8jdtjzCN4CpugZYP522Y7JIxYEufqwpKUto','2016-10-31 06:45:11','2016-12-05 19:47:43',1,'Active',20.0),(21,'Nino','nino.corovic@gmail2.com','7','$2y$10$RWVn9qP0vDJUu8B4mdD1EeYXHnA.YrgLtkOK/.ihCFgpaTBODUHpK',NULL,'2016-11-01 13:23:46','2016-11-01 13:23:46',0,'active',20.0),(22,'Nino','nino.corovic@gmai2l.com','sadsa','$2y$10$24MuiqYG2JFurd.7UFP8dO/EHCe9v/HTPMFeTd1j1q2v8GmVM0/P2',NULL,'2016-11-01 13:46:36','2016-11-01 13:46:36',0,'active',20.0),(23,'nmnm','nmnm@nmnm.nmnm','nmnm','$2y$10$1yqeJXBl1ukraw19hxoB9.4.4YHx0CMxcwIVV4skpRgpack/ytWRi',NULL,'2016-11-01 20:00:48','2016-11-01 20:00:48',0,'active',20.0),(24,'Amir Sabanovic','asabanovic3@gmail.com','amirsabanovic','$2y$10$Py9.bzQnNG82cg6ymPRDneMMhAzlNvtRp7TGn1vkYQixAkm557VMO','VqPMJUQ6yGOgjB5dfrGoD6G611jC3qLdoIVvJlb4W0SssqyjYVuBz7KpjI0K','2016-11-07 21:04:25','2016-11-13 16:35:35',0,'active',20.0),(26,'qwqw','qwqw@qw.qw','qwqw','$2y$10$JvOmr9i.odho2/aQM.XFQ.hXmrO7/PVFK4jtBqaLrbpyCSJbZK7Ua',NULL,'2016-11-12 23:49:46','2016-11-12 23:49:46',1,'active',20.0);
+INSERT INTO `users` VALUES (1,'Nino','nino.corovic@gmail.com','1','$2y$10$R8dYV/QXAUlpuLYOkJZg0uYM90oRuw/b83F3rfITgHYJwJMd.XO9a','XJTS7tYyPkGf3YZfCJCpB3mEpCuRmwXi98eIZeJdez4TVHo2bnHswZWHtxF6','2016-10-30 17:14:40','2016-12-06 16:35:08',0,'active',20.0),(2,'Amir','amir.sabanovic@gmail.com','2','$2y$10$bNVToDYPgP4kmgENAy8nm.Z4lQbpp9B01G2S0LiI8tLi3c2WeGnki','pJIQAgMAeQo3Fikq86kn8zXUht8Jq5LvTU4Pxbrf9wzLmFehCx0SKAK5UpI1','2016-10-30 19:59:29','2016-11-07 21:31:29',0,'active',20.0),(3,'sadsad','sadsadka@gmail.com','3','$2y$10$2ItmdEi.AtUTb2tdwpWzS.zU4fqyAIQhXzAOSpgX01OJ.3m5d3Oiq',NULL,'2016-10-30 20:36:13','2016-10-30 20:36:13',0,'active',20.0),(4,'ksladka','novi@email.adresa','4','$2y$10$gXMb.XpKHwib3g.R4jrTZ.PG4VtlCHY65owNyqmehUbX5wr9U73aO',NULL,'2016-10-30 20:51:26','2016-10-30 20:51:26',0,'active',20.0),(5,'nono','sada@sada.sada','5','$2y$10$k7OOZsI22/mVkJtU3ldQauUEk00sh5My/Aq.A7OsVZokRsVXnc4fm','ibKOhQrIuEXOclUv5KLl4zTki1UFpED0tZhYC1pYigTleqs2TbEcm6QnJP9d','2016-10-30 20:53:51','2016-10-31 06:24:33',0,'active',20.0),(6,'opp','opp@opp.opp','6','$2y$10$8kRFNFTP13djMCSgf9nUGeQpWTjHagoUd2nnjfErIU6.wVxIAEcum','w3l8pk0HykYsRnM5iGjWBvAjcp3ZawEWUc1uDB4ywxJBRAhIDAgckRUZ5hpM','2016-10-31 06:45:11','2016-12-06 16:45:43',1,'active',20.0),(21,'Nino','nino.corovic@gmail2.com','7','$2y$10$RWVn9qP0vDJUu8B4mdD1EeYXHnA.YrgLtkOK/.ihCFgpaTBODUHpK',NULL,'2016-11-01 13:23:46','2016-11-01 13:23:46',0,'active',20.0),(22,'Nino','nino.corovic@gmai2l.com','sadsa','$2y$10$24MuiqYG2JFurd.7UFP8dO/EHCe9v/HTPMFeTd1j1q2v8GmVM0/P2',NULL,'2016-11-01 13:46:36','2016-11-01 13:46:36',0,'active',20.0),(23,'nmnm','nmnm@nmnm.nmnm','nmnm','$2y$10$1yqeJXBl1ukraw19hxoB9.4.4YHx0CMxcwIVV4skpRgpack/ytWRi',NULL,'2016-11-01 20:00:48','2016-11-01 20:00:48',0,'active',20.0),(24,'Amir Sabanovic','asabanovic3@gmail.com','amirsabanovic','$2y$10$Py9.bzQnNG82cg6ymPRDneMMhAzlNvtRp7TGn1vkYQixAkm557VMO','VqPMJUQ6yGOgjB5dfrGoD6G611jC3qLdoIVvJlb4W0SssqyjYVuBz7KpjI0K','2016-11-07 21:04:25','2016-11-13 16:35:35',0,'active',20.0),(26,'qwqw','qwqw@qw.qw','qwqw','$2y$10$JvOmr9i.odho2/aQM.XFQ.hXmrO7/PVFK4jtBqaLrbpyCSJbZK7Ua',NULL,'2016-11-12 23:49:46','2016-11-12 23:49:46',1,'active',20.0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,4 +213,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-06 10:41:06
+-- Dump completed on 2016-12-08 20:20:07
