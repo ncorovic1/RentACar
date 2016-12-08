@@ -5,12 +5,12 @@
 @endsection
 
 @section('style')
-    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}" type="text/css"> 
-    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-theme.min.css') }}" type="text/css"> 
     <style>
+        body { background-color: white; }
         a { color: black; }
         a:hover { text-decoration: none; font-weight: 900; }
     </style>
+
 @endsection
 
 @section('font')
@@ -19,7 +19,6 @@
 
 @section('script')
     <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 @endsection
 
 @section('content') 

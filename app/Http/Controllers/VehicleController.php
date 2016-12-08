@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use View;
 use Auth;
 use App\Vehicle;
+use App\Reservation;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
@@ -13,6 +14,25 @@ class VehicleController extends Controller {
     protected $redirectTo = '/operator';
     
     public function __construct() {}
+    
+    public function addReservation($u_id, $v_id, $r_date, $e_date) {
+        $r_date = date("Y-m-d H:i:s", strtotime($r_date));
+        $e_date = date("Y-m-d H:i:s", strtotime($e_date));
+        if ( Auth::guest() )
+            return \Redirect::route('login');
+        else if (Auth::user()->operator)
+            return \Redirect::route('operator');
+        else {
+            Reservation::create([
+                'user_id'     => $u_id,
+                'vehicle_id'  => $v_id, 
+                'rent_date'   => $r_date, 
+                'expire_date' => $e_date,
+            ]);
+            return redirect('/myrents');
+        }
+    }
+    
     //Browse cars
     public function search() {
         if (Auth::guest())
@@ -29,13 +49,14 @@ class VehicleController extends Controller {
         else if (Auth::user()->operator)
             return \Redirect::route('operator');
         else {
-            $reservations = Auth::user()->reservations;
+            $reservations = Auth::user()->reservations->sortByDesc('created_at');
             $vehicles = array();
             foreach($reservations as $r) {
                 $v = Vehicle::where('id', '=', $r->vehicle_id)->first();
                 array_push($vehicles, $v);
             }
             $data = array(
+                'reservations' => $reservations,
                 'vehicles' => $vehicles
             );
             return View::make('pregled', $data);

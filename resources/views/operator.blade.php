@@ -5,7 +5,6 @@
 @endsection
 
 @section('style')
-    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}" type="text/css">  
 @endsection
 
 @section('font')

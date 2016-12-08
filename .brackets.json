@@ -1,0 +1,8 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/wamp64/www/RentACar/gulpfile.js",
+        "C:/wamp64/www/RentACar/public/js/ajaxRenting.js",
+        "C:/wamp64/www/RentACar/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/js/respond.min.js",
+        "C:/wamp64/www/RentACar/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/js/nv.d3.min.js"
+    ]
+}

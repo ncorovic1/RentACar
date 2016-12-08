@@ -12,8 +12,22 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    @yield('style')
     
+    @yield('style')
+    <style>
+        .navbar-brand {
+            float: left;
+            padding: 14px 15px;
+            font-size: 14px;
+            line-height: 22px;
+            height: 50px;
+        }
+        .carousel-control.left, .carousel-control.right{ 
+            background: none !important;
+            filter: progid:none !important;
+            color: black;
+        }
+    </style>
     <!-- Fonts -->
     @yield('font')
 

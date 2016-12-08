@@ -22,12 +22,41 @@
             @endif
             <br><br>Current Parking Lot: {{ $vehicle->current_parking_lot }}
             <br><br>
+<!-- MAP  -->            
             <a href="javascript:void(0)">
                 <button type="button" class="btn btn-default" onclick="loadParkingLots({{ $vehicle->current_parking_lot }})">Map</button>
             </a>
+<!-- RENT -->            
             <a href="javascript:void(0)">
-                <button type="button" class="btn btn-success">Rent</button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal{{$vehicle->id}}">Rent</button>
+                <div class="modal fade" id="myModal{{$vehicle->id}}" role="dialog">
+                    <div class="modal-dialog" style="width: 380px;">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Renting Confirmation</h4>
+                        </div>
+                        <div class="modal-body" style="width: 90%; margin-left: auto; margin-right: auto;">
+                            <form style="width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
+                                <label for="d{{ $vehicle->id }}" style="width: 40px;">From:</label>
+                                <input type="datetime-local" step="3600" id="d{{ $vehicle->id }}" onchange="validateRI({{ $vehicle->id }})" onblur="validateRI({{ $vehicle->id }})">
+                                <br><br>
+                                <label for="d{{ $vehicle->id + 1000 }}" style="width: 40px;">To:</label>
+                                <input type="datetime-local" step="3600" id="d{{ $vehicle->id + 1000}}" onchange="validateRI({{ $vehicle->id }})" onblur="validateRI({{ $vehicle->id }})">
+                                <br><br>
+                                <button type="button" style="width: 90%" id="butt{{ $vehicle->id }}" onclick="rentInformation({{ $vehicle->price_per_hour }}, {{ $vehicle->id }})" class="btn btn-primary disabled">Rent information</button><br><br>
+                                <p id="rentInformation{{ $vehicle->id }}"></p>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default disabled" onclick="completeRent({{ Auth::user()->id }}, {{ $vehicle->id }})" id="proc{{ $vehicle->id }}">Proceed</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
             </a> 
+            
         </div>
         @if ($col % 3 == 0)
             </div>
