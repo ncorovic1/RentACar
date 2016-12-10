@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2016 at 05:15 PM
+-- Generation Time: Dec 10, 2016 at 08:06 PM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -32,9 +32,9 @@ CREATE TABLE IF NOT EXISTS `incidents` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `vehicle_id` int(10) UNSIGNED NOT NULL,
   `type` varchar(30) COLLATE utf8_slovenian_ci NOT NULL,
-  `datum` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `opis` text COLLATE utf8_slovenian_ci NOT NULL,
-  `steta` int(11) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `description` text COLLATE utf8_slovenian_ci NOT NULL,
+  `damage` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `vehicle_id` (`vehicle_id`),
   KEY `user_id` (`user_id`) USING BTREE
