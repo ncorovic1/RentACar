@@ -3,7 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Dec 12, 2016 at 01:43 AM
+=======
+-- Generation Time: Dec 10, 2016 at 08:06 PM
+>>>>>>> origin/master
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -122,7 +126,11 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf16;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf16;
+>>>>>>> origin/master
 
 --
 -- Dumping data for table `reservations`
@@ -131,9 +139,13 @@ CREATE TABLE IF NOT EXISTS `reservations` (
 INSERT INTO `reservations` (`id`, `user_id`, `vehicle_id`, `rent_date`, `expire_date`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, '2016-12-16 00:00:00', '2016-12-22 00:00:00', '2016-12-08 16:43:35', '2016-12-08 16:43:35'),
 (2, 2, 7, '2016-12-15 00:00:00', '2016-12-22 00:00:00', '2016-12-08 17:33:50', '2016-12-08 17:33:50'),
+<<<<<<< HEAD
 (3, 1, 8, '2016-12-18 00:00:00', '2016-12-29 00:00:00', '2016-12-08 17:40:19', '2016-12-08 17:40:19'),
 (4, 24, 1, '2016-12-12 19:00:00', '2016-12-24 02:00:00', '2016-12-10 22:23:52', '2016-12-10 22:23:52'),
 (5, 24, 7, '2016-12-15 00:00:00', '2016-12-20 23:00:00', '2016-12-12 00:37:31', '2016-12-12 00:37:31');
+=======
+(3, 1, 8, '2016-12-18 00:00:00', '2016-12-29 00:00:00', '2016-12-08 17:40:19', '2016-12-08 17:40:19');
+>>>>>>> origin/master
 
 -- --------------------------------------------------------
 
