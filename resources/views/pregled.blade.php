@@ -20,23 +20,18 @@
     <script src="js/jquery.min.js"></script>
 @endsection
 
-@section('content')       
+@section('content')     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3" style="height: 150px;">         
-            </div>
+            <div class="col-md-3" style="height:150px"></div>
             <div class="col-md-6">
                 <div id='map' class="img-responsive" style="height:300px;width:100%;margin:0 0 0 0"></div>
                 <script src="js/kodZaPrikazMape.js"></script>
             </div>
-            <div class="col-md-3">
-                
-            </div>
+            <div class="col-md-3"></div>
         </div>
         <div class="row">
-            <div class="col-md-3">
-
-            </div>
+            <div class="col-md-3"></div>
             <div class="col-md-6">
                 @foreach($vehicles as $index => $v)
                     <div class="row">
@@ -75,13 +70,14 @@
                             <span class="label label-warning">
                                 Time return: {{ str_limit($reservations[$index]->expire_date,   16, $end = '') }} 
                             </span>
+                            <br><br><a href="javascript:void(0)">
+                                <button type="button" class="btn btn-default" onclick="loadParkingLots({{ $v->current_parking_lot }})">Map</button>
+                            </a>
                         </div>
-                    </div>    
+                    </div>
                 @endforeach
             </div>
-            <div class="col-md-3">
-
-            </div>
+            <div class="col-md-3"></div>
         </div>
     </div>
 @endsection

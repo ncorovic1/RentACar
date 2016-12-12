@@ -117,6 +117,7 @@ function loadParkingLots(id = 0) {
                 for (var i = 0; i < lots.length; i++) {
                     if (id == lots[i]['id']) {
                         geojson.features[i].properties['marker-color'] = "#0000ff";
+                        map.setView([geojson.features[i].geometry.coordinates[1], geojson.features[i].geometry.coordinates[0]], 17);
                     }
                 }
             }
