@@ -62,6 +62,23 @@ class VehicleController extends Controller {
             return View::make('pregled', $data);
         }
     }
+
+    public function rents($id) {
+        if (Auth::guest())
+            return \Redirect::route('login');
+        else if (Auth::user()->operator) {
+            $reservations = Reservation::where('user_id', '=', $id)->get();
+            $vehicles = array();
+            foreach ($reservations as $reservation) {
+                $vehicle = Vehicle::where('id', '=', $reservation->vehicle_id)->first();
+                array_push($vehicles, $vehicle);
+            }
+            return View::make('loadUserVehicles')->with('vehicles', $vehicles);
+        }
+        else {
+            return \Redirect::route('korisnik');
+        }
+    }
     
     public function purchaseVehicle() {
         if (Auth::guest())

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use View;
 use Auth;
 use App\User;
+use App\Reservation;
+use App\Vehicle;
+use App\Incident;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
@@ -55,8 +58,12 @@ class RouteController extends Controller {
             return \Redirect::route('login');
         else if (Auth::user()->operator) {
             $users = User::all();
+            $reservations = Reservation::all();
+            $vehicles = Vehicle::all();
             $data = array(
-                'users' => $users
+                'users' => $users,
+                'reservations' => $reservations,
+                'vehicles' => $vehicles
             );
             return View::make('nalozi', $data);
         }
