@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2016 at 01:43 AM
+-- Generation Time: Dec 13, 2016 at 11:56 AM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -35,10 +35,28 @@ CREATE TABLE IF NOT EXISTS `incidents` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `description` text COLLATE utf8_slovenian_ci NOT NULL,
   `damage` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL,
   PRIMARY KEY (`id`),
   KEY `vehicle_id` (`vehicle_id`),
   KEY `user_id` (`user_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
+
+--
+-- Dumping data for table `incidents`
+--
+
+INSERT INTO `incidents` (`id`, `user_id`, `vehicle_id`, `type`, `date`, `description`, `damage`, `created_at`, `updated_at`) VALUES
+(1, 24, 7, 'Crash (Not Guilty', '2016-12-12 12:00:00', 'Probni udes...', 100, '2016-12-13 08:06:03', '2016-12-13 08:06:03'),
+(2, 24, 1, 'Low Fuel', '2016-12-13 11:00:00', 'Drugi probni incident...', 20, '2016-12-13 09:47:52', '2016-12-13 09:47:52'),
+(3, 24, 1, 'Car Failure', '2016-12-13 10:00:00', 'Kvar.', 1000, '2016-12-13 10:38:55', '2016-12-13 10:38:55'),
+(4, 1, 1, 'Crash - Guilty', '2016-12-13 10:00:00', 'Kriv je.', 1000, '2016-12-13 10:39:32', '2016-12-13 10:39:32'),
+(5, 1, 1, 'Crash - Guilty', '2016-12-13 10:00:00', 'Kriv.', 1000, '2016-12-13 10:41:47', '2016-12-13 10:41:47'),
+(6, 1, 1, 'Crash - Guilty', '2016-12-13 10:00:00', 'Kriv.', 1000, '2016-12-13 10:49:03', '2016-12-13 10:49:03'),
+(7, 1, 1, 'Crash - Guilty', '2016-12-13 10:00:00', 'Kriv.', 1000, '2016-12-13 10:49:46', '2016-12-13 10:49:46'),
+(8, 24, 1, 'Crash - Guilty', '2016-12-13 10:00:00', 'Kriv.', 1000, '2016-12-13 10:51:10', '2016-12-13 10:51:10'),
+(9, 24, 8, 'Crash - Guilty', '2016-12-13 12:00:00', 'Potpuno kriv.', 2000, '2016-12-13 10:51:46', '2016-12-13 10:51:46'),
+(10, 1, 1, 'Car Damage', '2016-12-13 10:00:00', 'Šteta.', 50, '2016-12-13 10:52:31', '2016-12-13 10:52:31');
 
 -- --------------------------------------------------------
 
@@ -122,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf16;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf16;
 
 --
 -- Dumping data for table `reservations`
@@ -133,7 +151,8 @@ INSERT INTO `reservations` (`id`, `user_id`, `vehicle_id`, `rent_date`, `expire_
 (2, 2, 7, '2016-12-15 00:00:00', '2016-12-22 00:00:00', '2016-12-08 17:33:50', '2016-12-08 17:33:50'),
 (3, 1, 8, '2016-12-18 00:00:00', '2016-12-29 00:00:00', '2016-12-08 17:40:19', '2016-12-08 17:40:19'),
 (4, 24, 1, '2016-12-12 19:00:00', '2016-12-24 02:00:00', '2016-12-10 22:23:52', '2016-12-10 22:23:52'),
-(5, 24, 7, '2016-12-15 00:00:00', '2016-12-20 23:00:00', '2016-12-12 00:37:31', '2016-12-12 00:37:31');
+(5, 24, 7, '2016-12-15 00:00:00', '2016-12-20 23:00:00', '2016-12-12 00:37:31', '2016-12-12 00:37:31'),
+(6, 24, 8, '2016-12-25 00:00:00', '2016-12-31 23:00:00', '2016-12-13 05:16:34', '2016-12-13 05:16:34');
 
 -- --------------------------------------------------------
 
@@ -164,17 +183,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `remember_token`, `created_at`, `updated_at`, `operator`, `status`, `reputation`) VALUES
-(1, 'Nino', 'nino.corovic@gmail.com', '1', '$2y$10$R8dYV/QXAUlpuLYOkJZg0uYM90oRuw/b83F3rfITgHYJwJMd.XO9a', 'XJTS7tYyPkGf3YZfCJCpB3mEpCuRmwXi98eIZeJdez4TVHo2bnHswZWHtxF6', '2016-10-30 17:14:40', '2016-12-06 16:35:08', 0, 'active', '20.0'),
-(2, 'Amir', 'amir.sabanovic@gmail.com', '2', '$2y$10$bNVToDYPgP4kmgENAy8nm.Z4lQbpp9B01G2S0LiI8tLi3c2WeGnki', 'pJIQAgMAeQo3Fikq86kn8zXUht8Jq5LvTU4Pxbrf9wzLmFehCx0SKAK5UpI1', '2016-10-30 19:59:29', '2016-11-07 21:31:29', 0, 'active', '20.0'),
-(3, 'sadsad', 'sadsadka@gmail.com', '3', '$2y$10$2ItmdEi.AtUTb2tdwpWzS.zU4fqyAIQhXzAOSpgX01OJ.3m5d3Oiq', NULL, '2016-10-30 20:36:13', '2016-10-30 20:36:13', 0, 'active', '20.0'),
-(4, 'ksladka', 'novi@email.adresa', '4', '$2y$10$gXMb.XpKHwib3g.R4jrTZ.PG4VtlCHY65owNyqmehUbX5wr9U73aO', NULL, '2016-10-30 20:51:26', '2016-10-30 20:51:26', 0, 'active', '20.0'),
-(5, 'nono', 'sada@sada.sada', '5', '$2y$10$k7OOZsI22/mVkJtU3ldQauUEk00sh5My/Aq.A7OsVZokRsVXnc4fm', 'ibKOhQrIuEXOclUv5KLl4zTki1UFpED0tZhYC1pYigTleqs2TbEcm6QnJP9d', '2016-10-30 20:53:51', '2016-10-31 06:24:33', 0, 'active', '20.0'),
-(6, 'opp', 'opp@opp.opp', '6', '$2y$10$8kRFNFTP13djMCSgf9nUGeQpWTjHagoUd2nnjfErIU6.wVxIAEcum', 'qT6zS4rdwATFSBZCgWN1gyy0vgd34plwjKGy9Rx5on4zv7JZEX9piVjmDdZ6', '2016-10-31 06:45:11', '2016-12-10 14:58:28', 1, 'active', '20.0'),
-(21, 'Nino', 'nino.corovic@gmail2.com', '7', '$2y$10$RWVn9qP0vDJUu8B4mdD1EeYXHnA.YrgLtkOK/.ihCFgpaTBODUHpK', NULL, '2016-11-01 13:23:46', '2016-11-01 13:23:46', 0, 'active', '20.0'),
-(22, 'Nino', 'nino.corovic@gmai2l.com', 'sadsa', '$2y$10$24MuiqYG2JFurd.7UFP8dO/EHCe9v/HTPMFeTd1j1q2v8GmVM0/P2', NULL, '2016-11-01 13:46:36', '2016-11-01 13:46:36', 0, 'active', '20.0'),
-(23, 'nmnm', 'nmnm@nmnm.nmnm', 'nmnm', '$2y$10$1yqeJXBl1ukraw19hxoB9.4.4YHx0CMxcwIVV4skpRgpack/ytWRi', NULL, '2016-11-01 20:00:48', '2016-11-01 20:00:48', 0, 'active', '20.0'),
-(24, 'Amir Sabanovic', 'asabanovic3@gmail.com', 'amirsabanovic', '$2y$10$Py9.bzQnNG82cg6ymPRDneMMhAzlNvtRp7TGn1vkYQixAkm557VMO', 'ivhR8e3QJICC9kYAanxFewfyoyDzaSmPraQCtc1OtmpaN4hxCdFj2I4cBwqK', '2016-11-07 21:04:25', '2016-12-10 14:50:14', 0, 'active', '20.0'),
-(26, 'qwqw', 'qwqw@qw.qw', 'qwqw', '$2y$10$JvOmr9i.odho2/aQM.XFQ.hXmrO7/PVFK4jtBqaLrbpyCSJbZK7Ua', NULL, '2016-11-12 23:49:46', '2016-11-12 23:49:46', 1, 'active', '20.0');
+(1, 'Nino Ćorović', 'nino.corovic@gmail.com', 'nino', '$2y$10$R8dYV/QXAUlpuLYOkJZg0uYM90oRuw/b83F3rfITgHYJwJMd.XO9a', 'XJTS7tYyPkGf3YZfCJCpB3mEpCuRmwXi98eIZeJdez4TVHo2bnHswZWHtxF6', '2016-10-30 17:14:40', '2016-12-13 10:52:32', 0, 'active', '17.0'),
+(6, 'Operator', 'opp@opp.opp', 'operator', '$2y$10$8kRFNFTP13djMCSgf9nUGeQpWTjHagoUd2nnjfErIU6.wVxIAEcum', 'ZDz4S7Pe3XaDbtQYU1BwYn71Db4LSQ7yWUszjuGojhVj9TBLh5bQE0s4dqVd', '2016-10-31 06:45:11', '2016-12-13 05:15:58', 1, 'active', '20.0'),
+(24, 'Amir Šabanović', 'asabanovic3@gmail.com', 'amirsabanovic', '$2y$10$Py9.bzQnNG82cg6ymPRDneMMhAzlNvtRp7TGn1vkYQixAkm557VMO', 'MHnMEwbTVmRL1D8lEGhw4bggPc1WmnvS0hDfIGMwRprVSvw7ct9SThldFai3', '2016-11-07 21:04:25', '2016-12-13 10:51:47', 0, 'active', '10.0'),
+(26, 'Administrator', 'admin@rentacar.com', 'admin', '$2y$10$JvOmr9i.odho2/aQM.XFQ.hXmrO7/PVFK4jtBqaLrbpyCSJbZK7Ua', NULL, '2016-11-12 23:49:46', '2016-11-12 23:49:46', 1, 'active', '20.0');
 
 -- --------------------------------------------------------
 
