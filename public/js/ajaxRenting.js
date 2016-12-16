@@ -1,4 +1,35 @@
-function filterData() {
+function deleteVehicle(id) {
+    var ajaxRequest;
+    try {
+        ajaxRequest = new XMLHttpRequest();
+    }
+    catch (e) {
+        try {
+            ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+        }
+        catch (e) {
+            try {
+                ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            catch (e) {
+                alert("Your browser broke!");
+                return false;
+            }
+        }
+    }
+    ajaxRequest.onreadystatechange = function() {
+        if (ajaxRequest.readyState == 4) {
+            var deletedVehicle = document.getElementsByClassName('car'+id)[0];
+            deletedVehicle.style.display = 'none';
+        }
+    }
+    var query = "/" + id;
+    ajaxRequest.open("GET", "deleteVehicle" + query, true);
+    ajaxRequest.send(null);
+}
+
+
+function filterData(type) {
     var ajaxRequest;
     try {
         ajaxRequest = new XMLHttpRequest();
@@ -30,7 +61,11 @@ function filterData() {
     var priorities = String(document.getElementsByClassName('1')[1].value); 
     priorities    += String(document.getElementsByClassName('4')[1].value);
     var query = "/" + price + "/" + form + "/" + transmission + "/" + fuel + "/" + priorities;
-    ajaxRequest.open("GET", "filterCars" + query, true);
+    if(type)
+        query = "filterCarsOperator" + query;
+    else
+        query = "filterCars" + query;
+    ajaxRequest.open("GET", query, true);
     ajaxRequest.send(null);
 }
 

@@ -3,12 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: Dec 13, 2016 at 11:56 AM
-=======
--- Generation Time: Dec 12, 2016 at 01:55 AM
->>>>>>> origin/master
--- Server version: 5.7.9
+-- Generation Time: Dec 16, 2016 at 11:51 AM
+-- Server version: 5.7.11-log
 -- PHP Version: 5.6.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -39,8 +35,8 @@ CREATE TABLE IF NOT EXISTS `incidents` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `description` text COLLATE utf8_slovenian_ci NOT NULL,
   `damage` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `vehicle_id` (`vehicle_id`),
   KEY `user_id` (`user_id`) USING BTREE
@@ -187,8 +183,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `remember_token`, `created_at`, `updated_at`, `operator`, `status`, `reputation`) VALUES
-(1, 'Nino Ćorović', 'nino.corovic@gmail.com', 'nino', '$2y$10$R8dYV/QXAUlpuLYOkJZg0uYM90oRuw/b83F3rfITgHYJwJMd.XO9a', 'XJTS7tYyPkGf3YZfCJCpB3mEpCuRmwXi98eIZeJdez4TVHo2bnHswZWHtxF6', '2016-10-30 17:14:40', '2016-12-13 10:52:32', 0, 'active', '17.0'),
-(6, 'Operator', 'opp@opp.opp', 'operator', '$2y$10$8kRFNFTP13djMCSgf9nUGeQpWTjHagoUd2nnjfErIU6.wVxIAEcum', 'ZDz4S7Pe3XaDbtQYU1BwYn71Db4LSQ7yWUszjuGojhVj9TBLh5bQE0s4dqVd', '2016-10-31 06:45:11', '2016-12-13 05:15:58', 1, 'active', '20.0'),
+(1, 'Nino Ćorović', 'nino.corovic@gmail.com', 'nino', '$2y$10$R8dYV/QXAUlpuLYOkJZg0uYM90oRuw/b83F3rfITgHYJwJMd.XO9a', 'uB0MGSUWXjISvH0YaNB1XZQyiXggsx3HIt09t4sJEDjUlH9yRqk3689MCPqf', '2016-10-30 17:14:40', '2016-12-16 10:16:03', 0, 'active', '17.0'),
+(6, 'Operator', 'opp@opp.opp', 'operator', '$2y$10$8kRFNFTP13djMCSgf9nUGeQpWTjHagoUd2nnjfErIU6.wVxIAEcum', 'wjsjH1Rg4oZQTll4hku6kwrITZX685RfdvaKs7ljoVVUtu0kyTJItX8jAjQm', '2016-10-31 06:45:11', '2016-12-16 10:01:22', 1, 'active', '20.0'),
 (24, 'Amir Šabanović', 'asabanovic3@gmail.com', 'amirsabanovic', '$2y$10$Py9.bzQnNG82cg6ymPRDneMMhAzlNvtRp7TGn1vkYQixAkm557VMO', 'MHnMEwbTVmRL1D8lEGhw4bggPc1WmnvS0hDfIGMwRprVSvw7ct9SThldFai3', '2016-11-07 21:04:25', '2016-12-13 10:51:47', 0, 'active', '10.0'),
 (26, 'Administrator', 'admin@rentacar.com', 'admin', '$2y$10$JvOmr9i.odho2/aQM.XFQ.hXmrO7/PVFK4jtBqaLrbpyCSJbZK7Ua', NULL, '2016-11-12 23:49:46', '2016-11-12 23:49:46', 1, 'active', '20.0');
 
@@ -222,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `current_parking_lot` (`current_parking_lot`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
 --
 -- Dumping data for table `vehicles`
@@ -235,7 +231,6 @@ INSERT INTO `vehicles` (`id`, `manufacturer`, `model`, `production_year`, `color
 (8, 'Ferrari', 'LaFerrari', 2015, 'Red', 'Luxury', 1, 1, 2, 2, 2, 1, 2, 220, '3.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/6912.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/6912.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/6912.jpg', '2016-11-08 00:30:28', '2016-11-08 00:30:28'),
 (9, 'Chevrolet', 'Impala', 2016, 'Blue', 'Intermediate', 0, 0, 5, 4, 4, 1, 3, 120, '5.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/7673.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7673.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7673.jpg', '2016-11-08 13:20:55', '2016-11-08 13:20:55'),
 (10, 'Chrysler', '300 SRT', 2015, 'White', 'Standard', 1, 1, 5, 3, 4, 1, 3, 500, '10.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/5651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/5651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/5651.jpg', '2016-11-08 13:24:19', '2016-11-08 13:24:19'),
-(11, 'Lotus', 'Exige S Club', 2016, 'Orange', 'Luxury', 1, 1, 2, 2, 2, 1, 2, 200, '9.0', 'http://blog.caranddriver.com/wp-content/uploads/2015/03/Lotus-Exige-S-Club-Racer-NEW-PLACEMENT.jpg', 'http://blog.caranddriver.com/wp-content/uploads/2015/03/Lotus-Exige-S-Club-Racer-NEW-PLACEMENT.jpg', 'http://blog.caranddriver.com/wp-content/uploads/2015/03/Lotus-Exige-S-Club-Racer-NEW-PLACEMENT.jpg', '2016-11-08 13:54:41', '2016-11-08 13:54:41'),
 (13, 'Nissan', 'Skyline R34', 2005, 'White', 'Luxury', 1, 1, 2, 2, 2, 1, 2, 200, '12.0', 'http://www.abload.de/img/img_2926zuff.jpg', 'http://www.abload.de/img/img_2926zuff.jpg', 'http://www.abload.de/img/img_2926zuff.jpg', '2016-11-13 00:06:07', '2016-11-13 00:06:07');
 
 --

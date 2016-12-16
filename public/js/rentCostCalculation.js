@@ -8,12 +8,16 @@ function validateRI(id) {
         differenceMS = d2.getTime() - d1.getTime();
         if(differenceMS > 0) {
             document.getElementById('butt'+id).className = "btn btn-primary";
+            document.getElementById('butt'+id).removeAttribute("disabled");
             document.getElementById('proc'+id).className = "btn btn-default";
+            document.getElementById('proc'+id).removeAttribute("disabled");
             return;
         }
     }
     document.getElementById('butt'+id).className = "btn btn-primary disabled";
+    document.getElementById('butt'+id).setAttribute("disabled","disabled");
     document.getElementById('proc'+id).className = "btn btn-default disabled";
+    document.getElementById('proc'+id).setAttribute("disabled","disabled");
     document.getElementById('rentInformation'+id).innerHTML = "";
 }
 

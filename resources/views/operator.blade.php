@@ -86,7 +86,7 @@
                 
             </div>
             <div class="col-md-2">
-                <a href="{{ url('/companyVehicles') }}">
+                <a href="{{ url('/browseVehicles') }}">
                     <img alt="PicRenting" src="images/pregledAutomobilaFirme.png" class="img-responsive img-rounded" />
                     <h3 class="text-center">
                         Browse Company Vehicles

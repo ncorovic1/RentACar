@@ -70,7 +70,7 @@
                             <a class="navbar-brand" href="{{ route('purchaseVehicle') }}">
                                 Purchase Vehicle
                             </a>
-                            <a class="navbar-brand" href="{{ route('companyVehicles') }}">
+                            <a class="navbar-brand" href="{{ route('browseVehicles') }}">
                                 Browse Company Vehicles
                             </a>
                         @else

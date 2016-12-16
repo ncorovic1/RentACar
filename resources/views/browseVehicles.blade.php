@@ -140,7 +140,7 @@
                             <div class="row" style="width:100%">
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4">
-                                    <button type="button" class="btn btn-primary" style="width:100%" onclick="filterData(0)">Search</button>
+                                    <button type="button" class="btn btn-primary" style="width:100%" onclick="filterData(1)">Search</button>
                                 </div>
                             </div>
                 
