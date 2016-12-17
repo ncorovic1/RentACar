@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2016 at 11:51 AM
--- Server version: 5.7.11-log
+-- Generation Time: Dec 17, 2016 at 05:28 AM
+-- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf16;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf16;
 
 --
 -- Dumping data for table `reservations`
@@ -148,11 +148,13 @@ CREATE TABLE IF NOT EXISTS `reservations` (
 
 INSERT INTO `reservations` (`id`, `user_id`, `vehicle_id`, `rent_date`, `expire_date`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, '2016-12-16 00:00:00', '2016-12-22 00:00:00', '2016-12-08 16:43:35', '2016-12-08 16:43:35'),
-(2, 2, 7, '2016-12-15 00:00:00', '2016-12-22 00:00:00', '2016-12-08 17:33:50', '2016-12-08 17:33:50'),
 (3, 1, 8, '2016-12-18 00:00:00', '2016-12-29 00:00:00', '2016-12-08 17:40:19', '2016-12-08 17:40:19'),
-(4, 24, 1, '2016-12-12 19:00:00', '2016-12-24 02:00:00', '2016-12-10 22:23:52', '2016-12-10 22:23:52'),
 (5, 24, 7, '2016-12-15 00:00:00', '2016-12-20 23:00:00', '2016-12-12 00:37:31', '2016-12-12 00:37:31'),
-(6, 24, 8, '2016-12-25 00:00:00', '2016-12-31 23:00:00', '2016-12-13 05:16:34', '2016-12-13 05:16:34');
+(7, 24, 2, '2016-12-25 10:00:00', '2017-01-07 10:00:00', '2016-12-16 22:42:26', '2016-12-16 22:42:26'),
+(8, 24, 9, '2017-01-07 15:00:00', '2017-01-10 15:00:00', '2016-12-16 22:43:21', '2016-12-16 22:43:21'),
+(9, 24, 10, '2016-12-31 09:00:00', '2017-01-02 12:00:00', '2016-12-16 22:44:06', '2016-12-16 22:44:06'),
+(10, 24, 13, '2016-12-17 01:00:00', '2016-12-19 18:00:00', '2016-12-16 22:45:12', '2016-12-16 22:45:12'),
+(11, 24, 41, '2016-12-17 00:00:00', '2016-12-17 23:00:00', '2016-12-16 22:45:51', '2016-12-16 22:45:51');
 
 -- --------------------------------------------------------
 
@@ -184,8 +186,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `remember_token`, `created_at`, `updated_at`, `operator`, `status`, `reputation`) VALUES
 (1, 'Nino Ćorović', 'nino.corovic@gmail.com', 'nino', '$2y$10$R8dYV/QXAUlpuLYOkJZg0uYM90oRuw/b83F3rfITgHYJwJMd.XO9a', 'uB0MGSUWXjISvH0YaNB1XZQyiXggsx3HIt09t4sJEDjUlH9yRqk3689MCPqf', '2016-10-30 17:14:40', '2016-12-16 10:16:03', 0, 'active', '17.0'),
-(6, 'Operator', 'opp@opp.opp', 'operator', '$2y$10$8kRFNFTP13djMCSgf9nUGeQpWTjHagoUd2nnjfErIU6.wVxIAEcum', 'wjsjH1Rg4oZQTll4hku6kwrITZX685RfdvaKs7ljoVVUtu0kyTJItX8jAjQm', '2016-10-31 06:45:11', '2016-12-16 10:01:22', 1, 'active', '20.0'),
-(24, 'Amir Šabanović', 'asabanovic3@gmail.com', 'amirsabanovic', '$2y$10$Py9.bzQnNG82cg6ymPRDneMMhAzlNvtRp7TGn1vkYQixAkm557VMO', 'MHnMEwbTVmRL1D8lEGhw4bggPc1WmnvS0hDfIGMwRprVSvw7ct9SThldFai3', '2016-11-07 21:04:25', '2016-12-13 10:51:47', 0, 'active', '10.0'),
+(6, 'Operator', 'opp@opp.opp', 'operator', '$2y$10$8kRFNFTP13djMCSgf9nUGeQpWTjHagoUd2nnjfErIU6.wVxIAEcum', 'zLacXL1k1sp25MHkyeJBl4HXouWv4OzwM7sPRHmXxcFsaczyaqLCeCDjVpVJ', '2016-10-31 06:45:11', '2016-12-16 22:25:59', 1, 'active', '20.0'),
+(24, 'Amir Šabanović', 'asabanovic3@gmail.com', 'amirsabanovic', '$2y$10$Py9.bzQnNG82cg6ymPRDneMMhAzlNvtRp7TGn1vkYQixAkm557VMO', 'Z4dDlbLbH0ruySDWes0eHsYv2qqpH8c4osAEjHrEEnLnABrJbdZpiIjc3mbm', '2016-11-07 21:04:25', '2016-12-17 04:19:21', 0, 'active', '10.0'),
 (26, 'Administrator', 'admin@rentacar.com', 'admin', '$2y$10$JvOmr9i.odho2/aQM.XFQ.hXmrO7/PVFK4jtBqaLrbpyCSJbZK7Ua', NULL, '2016-11-12 23:49:46', '2016-11-12 23:49:46', 1, 'active', '20.0');
 
 -- --------------------------------------------------------
@@ -218,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `current_parking_lot` (`current_parking_lot`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
 --
 -- Dumping data for table `vehicles`
@@ -231,7 +233,8 @@ INSERT INTO `vehicles` (`id`, `manufacturer`, `model`, `production_year`, `color
 (8, 'Ferrari', 'LaFerrari', 2015, 'Red', 'Luxury', 1, 1, 2, 2, 2, 1, 2, 220, '3.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/6912.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/6912.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/6912.jpg', '2016-11-08 00:30:28', '2016-11-08 00:30:28'),
 (9, 'Chevrolet', 'Impala', 2016, 'Blue', 'Intermediate', 0, 0, 5, 4, 4, 1, 3, 120, '5.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/7673.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7673.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7673.jpg', '2016-11-08 13:20:55', '2016-11-08 13:20:55'),
 (10, 'Chrysler', '300 SRT', 2015, 'White', 'Standard', 1, 1, 5, 3, 4, 1, 3, 500, '10.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/5651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/5651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/5651.jpg', '2016-11-08 13:24:19', '2016-11-08 13:24:19'),
-(13, 'Nissan', 'Skyline R34', 2005, 'White', 'Luxury', 1, 1, 2, 2, 2, 1, 2, 200, '12.0', 'http://www.abload.de/img/img_2926zuff.jpg', 'http://www.abload.de/img/img_2926zuff.jpg', 'http://www.abload.de/img/img_2926zuff.jpg', '2016-11-13 00:06:07', '2016-11-13 00:06:07');
+(13, 'Nissan', 'Skyline R34', 2005, 'White', 'Luxury', 1, 1, 2, 2, 2, 1, 2, 200, '12.0', 'http://www.abload.de/img/img_2926zuff.jpg', 'http://www.abload.de/img/img_2926zuff.jpg', 'http://www.abload.de/img/img_2926zuff.jpg', '2016-11-13 00:06:07', '2016-11-13 00:06:07'),
+(41, 'Tesla', 'Model S', 2015, 'Red', 'Standard', 1, 1, 5, 4, 4, 1, 1, 20, '10.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/7651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7651.jpg', '2016-12-16 22:24:57', '2016-12-16 22:24:57');
 
 --
 -- Constraints for dumped tables
