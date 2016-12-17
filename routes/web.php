@@ -31,6 +31,7 @@ Route::get('/deleteVehicle/{id}', 'VehicleController@deleteVehicle')->name('dele
 Route::get('filterCars/{price}/{form}/{transmission}/{fuel}/{priorities}', 'VehicleController@displayCars')->name('filterCars'); // filterCars; filterCars
 Route::get('filterCarsOperator/{price}/{form}/{transmission}/{fuel}/{priorities}', 'VehicleController@displayCarsOperator')->name('filterCarsOperator'); // filterCarsOperator; filterCarsOperator
 Route::get('addReservation/{u_id}/{v_id}/{r_date}/{e_date}', 'VehicleController@addReservation')->name('addReservation'); // addReservation; addReservation
+Route::get('checkAvailability/{vehicle_id}/{d1}/{d2}', 'VehicleController@checkAvailability')->name('checkAvailability'); // checkAvailability; checkAvailability
 Route::get('loadParkingLots',   'ParkingLotController@loadParkingLots')->name('loadParkingLots'); // loadParkingLots; loadParkingLots
 Route::get('loadUserVehicles/{id}',   'VehicleController@rents')->name('loadUserVehicles'); // loadUserVehicles; loadUserVehicles
 Route::post('/reportIncident', 'IncidentController@reportIncident')->name('reportIncident'); // reportIncident; reportIncident

@@ -83,6 +83,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $users->links() }}
                     </div>
                     <div class="col-md-5">
                         <h2 id="nameSurnameUsername"></h2>

@@ -61,7 +61,7 @@ function filterData(type) {
     var priorities = String(document.getElementsByClassName('1')[1].value); 
     priorities    += String(document.getElementsByClassName('4')[1].value);
     var query = "/" + price + "/" + form + "/" + transmission + "/" + fuel + "/" + priorities;
-    if(type)
+    if (type)
         query = "filterCarsOperator" + query;
     else
         query = "filterCars" + query;

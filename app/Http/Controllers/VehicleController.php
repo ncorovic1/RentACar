@@ -142,6 +142,22 @@ class VehicleController extends Controller {
             return View::make('filterCars')->with('vehicles', $vehicles);
         }
     }
+    public function checkAvailability($vehicle_id, $d1, $d2) {
+        if (Auth::guest())
+            return \Redirect::route('login');
+        else if (Auth::user()->operator)
+            return \Redirect::route('operator');
+        else {
+            $reservations = Reservation::where('vehicle_id', "=", $vehicle_id)->get();
+            $available = 1;
+            $d1 = $d1 / 1000;
+            $d2 = $d2 / 1000;
+            foreach ($reservations as $r)
+                if ($d1 <= strtotime($r['expire_date']) && $d2 >= strtotime($r['rent_date']))
+                    $available = 0;
+            return View::make('checkAvailability')->with('available', $available);
+        }
+    }
     //Filter cars Operator
     public function displayCarsOperator($price, $form, $transmission, $fuel, $priorities) {
         if (Auth::guest())

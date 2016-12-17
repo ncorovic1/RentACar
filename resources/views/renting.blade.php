@@ -27,13 +27,13 @@
         $(document).ready(function() {
             $('[data-toggle="popover"]').popover({
                 container: 'body'
-            }); 
+            });
         });
     </script>
     <script src="js/rentCostCalculation.js"></script>
 @endsection
 
-@section('content') 
+@section('content')
     <div class="container-fluid">
 
         <div class="row">

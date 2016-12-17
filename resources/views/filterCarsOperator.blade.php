@@ -28,7 +28,7 @@
             </a>
 <!-- DELETE --> 
             <a href="javascript:void(0)">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal{{$vehicle->id}}">Delete</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal{{$vehicle->id}}">Delete</button>
                 <div class="modal fade" id="myModal{{$vehicle->id}}" role="dialog">
                     <div class="modal-dialog" style="width: 380px;">
                       <div class="modal-content">

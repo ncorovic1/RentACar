@@ -9,7 +9,7 @@ use View;
 class ParkingLotController extends Controller {
 
     public function loadParkingLots() {
-        $lots = ParkingLot::All();
+        $lots = ParkingLot::all();
         return View::make('loadParkingLots')->with('lots', $lots);
     }
     

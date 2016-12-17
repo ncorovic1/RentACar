@@ -28,16 +28,16 @@
             color: black;
         }
     </style>
+    
     <!-- Fonts -->
     @yield('font')
 
     <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
+    
     @yield('script')
+    <script>
+            window.Laravel = {{ json_encode(['csrfToken' => csrf_token()]) }};
+    </script>
 </head>
 <body>
     <div id="app">
