@@ -57,7 +57,7 @@ class RouteController extends Controller {
         if (Auth::guest())
             return \Redirect::route('login');
         else if (Auth::user()->operator) {
-            $users = User::paginate(2);
+            $users = User::paginate(10);
             $reservations = Reservation::all();
             $vehicles = Vehicle::all();
             $data = array(

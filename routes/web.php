@@ -20,7 +20,7 @@ Route::get('/operator', 'RouteController@operator')->name('operator'); // operat
 Route::get('/accounts', 'RouteController@accounts')->name('nalozi'); // accounts; nalozi
 Route::get('/register', 'RouteController@registerGet')->name('register'); // register; register
 
-Route::get('/purchaseVehicle',  'VehicleController@purchaseVehicle')->name('purchaseVehicle'); // purchaseVehicle; purchaseVehicle
+Route::get('/purchaseVehicle',  'VehiclePurchaseController@purchaseVehicle')->name('purchaseVehicle'); // purchaseVehicle; purchaseVehicle
 Route::get('/companyVehicles',  'VehicleController@companyVehicles')->name('companyVehicles'); // companyVehicles; companyVehicles
 Route::get('/renting',          'VehicleController@search')->name('renting'); // renting; renting
 Route::get('/browseVehicles',   'VehicleController@browse')->name('browseVehicles'); // browseVehicles; browseVehicles

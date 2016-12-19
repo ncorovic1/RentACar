@@ -97,7 +97,7 @@ class VehicleController extends Controller {
         if (Auth::guest())
             return \Redirect::route('login');
         else if (Auth::user()->operator)
-            echo "purchaseVehicle.blade.php nije implementirano!";
+            return View::make('purchaseVehicle');
         else
             return \Redirect::route('korisnik');
     }
@@ -114,8 +114,6 @@ class VehicleController extends Controller {
     public function displayCars($price, $form, $transmission, $fuel, $priorities) {
         if (Auth::guest())
             return \Redirect::route('login');
-        else if (Auth::user()->operator)
-            return \Redirect::route('operator');
         else {
             $vehicles = Vehicle::where('id', '>', '0');
             if ($price != 'Any')

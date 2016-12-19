@@ -4,9 +4,12 @@ function validateRI(id) {
     if (d1Check != "" && d2Check != "") {
         var d1 = new Date(d1Check);
         var d2 = new Date(d2Check);
+        var d = new Date()
         
-        differenceMS = d2.getTime() - d1.getTime();
-        if (differenceMS > 0) {
+        differenceMS  = d2.getTime() - d1.getTime();
+        differenceMS2 = d1.getTime() - d.getTime();
+        
+        if (differenceMS > 0 && differenceMS2 > 0) {
             document.getElementById('butt' + id).className = "btn btn-primary";
             document.getElementById('butt' + id).removeAttribute("disabled");
             document.getElementById('proc' + id).className = "btn btn-default";

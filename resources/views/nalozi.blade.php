@@ -20,7 +20,13 @@
 @section('script')
     <script src="js/jquery.min.js"></script>
     <script src="js/suspendUser.js"></script>
-@endsection
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="popover"]').popover({
+                container: 'body'
+            });
+        });
+    </script>
 
 @section('content') 
     <div class="container-fluid">
@@ -39,8 +45,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <table class="table table-sm">
                             <thead>
                                 <tr>
@@ -85,7 +90,7 @@
                         </table>
                         {{ $users->links() }}
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <h2 id="nameSurnameUsername"></h2>
                         
 
@@ -122,9 +127,13 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="dateOfIncident" class="col-md-3 control-label">Date of incident:</label>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <input type="datetime-local" class="form-control" step="3600" id="dateOfIncident" name="dateOfIncident">
+                            </div>
+                            <div class="col-md-1">
+                               <button type="button" href="javascript:void(0)" title="" data-html="true" data-toggle="popover" data-trigger="hover" data-placement="right" 
+                                data-content="Date of Incident" class="btn btn-default" value=""><b>?</b></button> 
+                                <!--<button type="button" value="?"> ? </button>-->
                             </div>
                         </div>
                         
@@ -142,14 +151,11 @@
                         
                         <div class="form-group">
                             <div class="col-md-5">
-                                <button type="submit" class="btn btn-primary">
-                                    Report Incident
-                                </button>
+                                <input type="submit" value="Report Incident" class="btn btn-primary">
                             </div>
                         </div>
                     </form>
                     </div>
-                    <div class="col-md-1"></div>
                 </div>
             </div>
         </div>
