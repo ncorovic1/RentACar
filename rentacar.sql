@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2016 at 05:28 AM
--- Server version: 5.7.9
+-- Generation Time: Dec 19, 2016 at 03:43 PM
+-- Server version: 5.7.11-log
 -- PHP Version: 5.6.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf16;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf16;
 
 --
 -- Dumping data for table `reservations`
@@ -154,7 +154,8 @@ INSERT INTO `reservations` (`id`, `user_id`, `vehicle_id`, `rent_date`, `expire_
 (8, 24, 9, '2017-01-07 15:00:00', '2017-01-10 15:00:00', '2016-12-16 22:43:21', '2016-12-16 22:43:21'),
 (9, 24, 10, '2016-12-31 09:00:00', '2017-01-02 12:00:00', '2016-12-16 22:44:06', '2016-12-16 22:44:06'),
 (10, 24, 13, '2016-12-17 01:00:00', '2016-12-19 18:00:00', '2016-12-16 22:45:12', '2016-12-16 22:45:12'),
-(11, 24, 41, '2016-12-17 00:00:00', '2016-12-17 23:00:00', '2016-12-16 22:45:51', '2016-12-16 22:45:51');
+(11, 24, 41, '2016-12-17 00:00:00', '2016-12-17 23:00:00', '2016-12-16 22:45:51', '2016-12-16 22:45:51'),
+(12, 1, 41, '2016-12-18 02:00:00', '2016-12-18 21:00:00', '2016-12-18 15:32:09', '2016-12-18 15:32:09');
 
 -- --------------------------------------------------------
 
@@ -186,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `remember_token`, `created_at`, `updated_at`, `operator`, `status`, `reputation`) VALUES
 (1, 'Nino Ćorović', 'nino.corovic@gmail.com', 'nino', '$2y$10$R8dYV/QXAUlpuLYOkJZg0uYM90oRuw/b83F3rfITgHYJwJMd.XO9a', 'uB0MGSUWXjISvH0YaNB1XZQyiXggsx3HIt09t4sJEDjUlH9yRqk3689MCPqf', '2016-10-30 17:14:40', '2016-12-16 10:16:03', 0, 'active', '17.0'),
-(6, 'Operator', 'opp@opp.opp', 'operator', '$2y$10$8kRFNFTP13djMCSgf9nUGeQpWTjHagoUd2nnjfErIU6.wVxIAEcum', 'zLacXL1k1sp25MHkyeJBl4HXouWv4OzwM7sPRHmXxcFsaczyaqLCeCDjVpVJ', '2016-10-31 06:45:11', '2016-12-16 22:25:59', 1, 'active', '20.0'),
+(6, 'Operator', 'opp@opp.opp', 'operator', '$2y$10$8kRFNFTP13djMCSgf9nUGeQpWTjHagoUd2nnjfErIU6.wVxIAEcum', '67bsyz3ouO5kCPrMESZ7Q8tXPZDni0RMjoutev5wx4zaB04OLFltRaJ3Rvng', '2016-10-31 06:45:11', '2016-12-18 15:30:18', 1, 'active', '20.0'),
 (24, 'Amir Šabanović', 'asabanovic3@gmail.com', 'amirsabanovic', '$2y$10$Py9.bzQnNG82cg6ymPRDneMMhAzlNvtRp7TGn1vkYQixAkm557VMO', 'Z4dDlbLbH0ruySDWes0eHsYv2qqpH8c4osAEjHrEEnLnABrJbdZpiIjc3mbm', '2016-11-07 21:04:25', '2016-12-17 04:19:21', 0, 'active', '10.0'),
 (26, 'Administrator', 'admin@rentacar.com', 'admin', '$2y$10$JvOmr9i.odho2/aQM.XFQ.hXmrO7/PVFK4jtBqaLrbpyCSJbZK7Ua', NULL, '2016-11-12 23:49:46', '2016-11-12 23:49:46', 1, 'active', '20.0');
 
@@ -235,6 +236,48 @@ INSERT INTO `vehicles` (`id`, `manufacturer`, `model`, `production_year`, `color
 (10, 'Chrysler', '300 SRT', 2015, 'White', 'Standard', 1, 1, 5, 3, 4, 1, 3, 500, '10.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/5651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/5651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/5651.jpg', '2016-11-08 13:24:19', '2016-11-08 13:24:19'),
 (13, 'Nissan', 'Skyline R34', 2005, 'White', 'Luxury', 1, 1, 2, 2, 2, 1, 2, 200, '12.0', 'http://www.abload.de/img/img_2926zuff.jpg', 'http://www.abload.de/img/img_2926zuff.jpg', 'http://www.abload.de/img/img_2926zuff.jpg', '2016-11-13 00:06:07', '2016-11-13 00:06:07'),
 (41, 'Tesla', 'Model S', 2015, 'Red', 'Standard', 1, 1, 5, 4, 4, 1, 1, 20, '10.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/7651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7651.jpg', '2016-12-16 22:24:57', '2016-12-16 22:24:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vehicle_purchases`
+--
+
+DROP TABLE IF EXISTS `vehicle_purchases`;
+CREATE TABLE IF NOT EXISTS `vehicle_purchases` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `manufacturer` varchar(25) CHARACTER SET utf16 DEFAULT NULL,
+  `model` varchar(30) CHARACTER SET utf16 DEFAULT NULL,
+  `production_year` int(4) DEFAULT NULL,
+  `color` varchar(20) CHARACTER SET utf16 DEFAULT NULL,
+  `form_factor` varchar(25) CHARACTER SET utf16 DEFAULT NULL,
+  `automatic` int(1) DEFAULT NULL,
+  `air_conditioning` int(1) DEFAULT NULL,
+  `passengers` int(1) DEFAULT NULL,
+  `bags` int(1) DEFAULT NULL,
+  `doors` int(1) DEFAULT NULL,
+  `fuel_consumption` decimal(3,1) DEFAULT NULL,
+  `image1` varchar(150) CHARACTER SET utf16 DEFAULT NULL,
+  `image2` varchar(150) CHARACTER SET utf16 DEFAULT NULL,
+  `image3` varchar(150) CHARACTER SET utf16 DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
+
+--
+-- Dumping data for table `vehicle_purchases`
+--
+
+INSERT INTO `vehicle_purchases` (`id`, `manufacturer`, `model`, `production_year`, `color`, `form_factor`, `automatic`, `air_conditioning`, `passengers`, `bags`, `doors`, `fuel_consumption`, `image1`, `image2`, `image3`, `created_at`, `updated_at`) VALUES
+(1, 'Mercedes-Benz', 'CLS 63 AMG', 2016, 'Metallic Gray', 'Standard', 1, 1, 5, 3, 4, '12.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/7415.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7415.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7415.jpg', '2016-11-01 19:23:29', '2016-11-01 19:23:29'),
+(2, 'BMW', 'M4', 2003, 'White', 'Intermediate', 1, 1, 5, 3, 2, '8.0', 'http://o.aolcdn.com/commerce/autodata/images/USC50BMC641A021001.jpg', 'https://laracasts.com/discuss/channels/general-discussion/url-validation', 'https://laracasts.com/discuss/channels/general-discussion/url-validation', '2016-11-02 15:43:46', '2016-11-02 15:43:46'),
+(7, 'Porsche', '911 GT3', 2015, 'White', 'Luxury', 1, 1, 2, 2, 2, '15.0', 'http://media.caranddriver.com/images/media/638444/porsche-911-gt3-photo-640539-s-original.jpg', 'http://media.caranddriver.com/images/media/638444/porsche-911-gt3-photo-640539-s-original.jpg', 'http://media.caranddriver.com/images/media/638444/porsche-911-gt3-photo-640539-s-original.jpg', '2016-11-07 23:27:44', '2016-11-07 23:27:44'),
+(8, 'Ferrari', 'LaFerrari', 2015, 'Red', 'Luxury', 1, 1, 2, 2, 2, '3.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/6912.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/6912.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/6912.jpg', '2016-11-07 23:30:28', '2016-11-07 23:30:28'),
+(9, 'Chevrolet', 'Impala', 2016, 'Blue', 'Intermediate', 0, 0, 5, 4, 4, '5.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/7673.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7673.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7673.jpg', '2016-11-08 12:20:55', '2016-11-08 12:20:55'),
+(10, 'Chrysler', '300 SRT', 2015, 'White', 'Standard', 1, 1, 5, 3, 4, '10.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/5651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/5651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/5651.jpg', '2016-11-08 12:24:19', '2016-11-08 12:24:19'),
+(13, 'Nissan', 'Skyline R34', 2005, 'White', 'Luxury', 1, 1, 2, 2, 2, '12.0', 'http://www.abload.de/img/img_2926zuff.jpg', 'http://www.abload.de/img/img_2926zuff.jpg', 'http://www.abload.de/img/img_2926zuff.jpg', '2016-11-12 23:06:07', '2016-11-12 23:06:07'),
+(41, 'Tesla', 'Model S', 2015, 'Red', 'Standard', 1, 1, 5, 4, 4, '10.0', 'http://buyersguide.caranddriver.com/media/assets/submodel/7651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7651.jpg', 'http://buyersguide.caranddriver.com/media/assets/submodel/7651.jpg', '2016-12-16 21:24:57', '2016-12-16 21:24:57');
 
 --
 -- Constraints for dumped tables
