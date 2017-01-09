@@ -1,0 +1,132 @@
+{
+    "result": true,
+    "user": {
+        "id": 1,
+        "name": "Nino \u0106orovi\u0107",
+        "email": "nino.corovic@gmail.com",
+        "username": "nino",
+        "created_at": "2016-10-30 18:14:40",
+        "updated_at": "2016-12-16 11:16:03",
+        "operator": 0,
+        "status": "active",
+        "reputation": "17.0",
+        "reservations": [{
+            "id": 1,
+            "user_id": 1,
+            "vehicle_id": 1,
+            "rent_date": "2016-12-16 00:00:00",
+            "expire_date": "2016-12-22 00:00:00",
+            "created_at": "2016-12-08 17:43:35",
+            "updated_at": "2016-12-08 17:43:35"
+        }, {
+            "id": 3,
+            "user_id": 1,
+            "vehicle_id": 8,
+            "rent_date": "2016-12-18 00:00:00",
+            "expire_date": "2016-12-29 00:00:00",
+            "created_at": "2016-12-08 18:40:19",
+            "updated_at": "2016-12-08 18:40:19"
+        }, {
+            "id": 12,
+            "user_id": 1,
+            "vehicle_id": 41,
+            "rent_date": "2016-12-18 02:00:00",
+            "expire_date": "2016-12-18 21:00:00",
+            "created_at": "2016-12-18 16:32:09",
+            "updated_at": "2016-12-18 16:32:09"
+        }]
+    },
+    "reservations": {
+        "2": {
+            "id": 12,
+            "user_id": 1,
+            "vehicle_id": 41,
+            "rent_date": "2016-12-18 02:00:00",
+            "expire_date": "2016-12-18 21:00:00",
+            "created_at": "2016-12-18 16:32:09",
+            "updated_at": "2016-12-18 16:32:09"
+        },
+        "1": {
+            "id": 3,
+            "user_id": 1,
+            "vehicle_id": 8,
+            "rent_date": "2016-12-18 00:00:00",
+            "expire_date": "2016-12-29 00:00:00",
+            "created_at": "2016-12-08 18:40:19",
+            "updated_at": "2016-12-08 18:40:19"
+        },
+        "0": {
+            "id": 1,
+            "user_id": 1,
+            "vehicle_id": 1,
+            "rent_date": "2016-12-16 00:00:00",
+            "expire_date": "2016-12-22 00:00:00",
+            "created_at": "2016-12-08 17:43:35",
+            "updated_at": "2016-12-08 17:43:35"
+        }
+    },
+    "vehicles": [{
+        "id": 41,
+        "manufacturer": "Tesla",
+        "model": "Model S",
+        "production_year": 2015,
+        "color": "Red",
+        "form_factor": "Standard",
+        "automatic": 1,
+        "air_conditioning": 1,
+        "passengers": 5,
+        "bags": 4,
+        "doors": 4,
+        "available": 1,
+        "current_parking_lot": 1,
+        "price_per_hour": 20,
+        "fuel_consumption": "10.0",
+        "image1": "http:\/\/buyersguide.caranddriver.com\/media\/assets\/submodel\/7651.jpg",
+        "image2": "http:\/\/buyersguide.caranddriver.com\/media\/assets\/submodel\/7651.jpg",
+        "image3": "http:\/\/buyersguide.caranddriver.com\/media\/assets\/submodel\/7651.jpg",
+        "created_at": "2016-12-16 23:24:57",
+        "updated_at": "2016-12-16 23:24:57"
+    }, {
+        "id": 8,
+        "manufacturer": "Ferrari",
+        "model": "LaFerrari",
+        "production_year": 2015,
+        "color": "Red",
+        "form_factor": "Luxury",
+        "automatic": 1,
+        "air_conditioning": 1,
+        "passengers": 2,
+        "bags": 2,
+        "doors": 2,
+        "available": 1,
+        "current_parking_lot": 2,
+        "price_per_hour": 220,
+        "fuel_consumption": "3.0",
+        "image1": "http:\/\/buyersguide.caranddriver.com\/media\/assets\/submodel\/6912.jpg",
+        "image2": "http:\/\/buyersguide.caranddriver.com\/media\/assets\/submodel\/6912.jpg",
+        "image3": "http:\/\/buyersguide.caranddriver.com\/media\/assets\/submodel\/6912.jpg",
+        "created_at": "2016-11-08 01:30:28",
+        "updated_at": "2016-11-08 01:30:28"
+    }, {
+        "id": 1,
+        "manufacturer": "Mercedes-Benz",
+        "model": "CLS 63 AMG",
+        "production_year": 2016,
+        "color": "Metallic Gray",
+        "form_factor": "Standard",
+        "automatic": 1,
+        "air_conditioning": 1,
+        "passengers": 5,
+        "bags": 3,
+        "doors": 4,
+        "available": 1,
+        "current_parking_lot": 1,
+        "price_per_hour": 100,
+        "fuel_consumption": "12.0",
+        "image1": "http:\/\/buyersguide.caranddriver.com\/media\/assets\/submodel\/7415.jpg",
+        "image2": "http:\/\/buyersguide.caranddriver.com\/media\/assets\/submodel\/7415.jpg",
+        "image3": "http:\/\/buyersguide.caranddriver.com\/media\/assets\/submodel\/7415.jpg",
+        "created_at": "2016-11-01 21:23:29",
+        "updated_at": "2016-11-01 21:23:29"
+    }]
+}

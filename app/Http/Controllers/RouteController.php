@@ -9,7 +9,9 @@ use App\Reservation;
 use App\Vehicle;
 use App\Incident;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class RouteController extends Controller {
     
@@ -69,6 +71,44 @@ class RouteController extends Controller {
         }
         else
             return \Redirect::route('korisnik');
+    }
+
+    public function loginAndroidGet($email, $pw) {
+        $user = User::where('email', '=', $email)->first();
+        
+        $result = false;
+        if ($user != null && Hash::check($pw, $user['password'])) {
+            $reservations = $user->reservations->sortByDesc('created_at');
+            $vehicles = array();
+            foreach ($reservations as $r) {
+                $v = Vehicle::where('id', '=', $r->vehicle_id)->first();
+                array_push($vehicles, $v);
+            }
+            $result = true;
+            return Response::json([
+                'result' => $result,
+                'user' => $user,
+                'reservations' => $reservations,
+                'vehicles' => $vehicles
+            ]);
+        }
+        else {
+            return Response::json([
+                'result' => $result
+            ]);
+        }
+    }
+
+    public function loginAndroidPost(Illuminate\Http\Request $request) {
+        $email = $request["email"];
+        $pw = $request["password"];
+        $user = User::where('email', '=', $email)->first();
+        $result = false;
+        if ($user != null && Hash::check($pw, $user['password']))
+            $result = true;
+        return Response::json([
+            'result' => $result,
+        ]);
     }
 }
    
